@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="img/css/main.css" rel="stylesheet">
+    <title>Blogg Assignment</title>
+</head>
+<body>
+    <div id="main-wrapper-container">
+      <ul class="nav">
+          <li><a href="#" >AddPost</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Contact</a></li>
+      </ul>
+<!--Navigation Ends here-->
+   <!--Post area Starts here -->
+
+   <div id="post-area">
+       <h1 class="main-heading">UPDATES OF THE WEEK</h1>
+
+       <div class="post">
+              <div class="post-title">
+                  <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi dolor esse mollitia qui odio, deleniti corrupti? Similique </h3>
+                  <p class="sub-title">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, quibusdam modi provident dolorem corrupti voluptate reiciendis optio molestias vel? Quidem, natus? Obcaecati </p>
+              </div>
+
+              <div class="post-image">
+                    <img src="img/1.jpg">
+              </div>
+
+              <div class="post-description">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit excepturi repudiandae provident commodi nam dolore magni dolor consequatur sit in explicabo soluta, eos quidem dolorum accusamus tempore voluptatum quod deserunt?</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit excepturi repudiandae provident commodi nam dolore magni dolor consequatur sit in explicabo soluta, eos quidem dolorum accusamus tempore voluptatum quod deserunt?  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas obcaecati suscipit optio sequi dolores commodi beatae non natus error, dignissimos veritatis inventore aliquam vel tempora officiis, illum quam a! Neque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi qui nesciunt, minima adipisci rerum neque mollitia a doloribus obcaecati accusantium iste repellat, perspiciatis magnam? Vel magni et illum dolores aspernatur!</p>
+              </div>
+       </div>
+   </div>
+
+
+   <div id="add-new">
+   
+       <div class="add-post">
+        <h1 class="main-heading">ADD NEW POST</h1>
+        <p><input type="text" id="txtPostTitle" placeholder="Title of the Post"></p>
+        <p><input type="text" id="txtPostSubTitle" placeholder="Sub Title of the Post"></p>
+        <p></p><input type="text" id="txtImg" placeholder="Image of the Post"></p>
+        <p></p><input type="text" id="txtDescription" placeholder="Description of the Post"></p>
+        <input type="submit" value="Add Post" onclick="addPost()">
+       </div>
+   </div>
+
+    </div><!--main Wrapper container ends here-->
+
+
+
+    <script>
+       function addPost()
+        {
+            var postTtl= document.getElementById("txtPostTitle").value;
+            var postsbTtl =document.getElementById("txtPostSubTitle").value;
+            var Postimg  =document.getElementById("txtImg").value;
+            var PostDesc =document.getElementById("txtDescription").value;
+            var postDiv =document.createElement('div');
+            var postArea =document.getElementById("post-area");
+
+            postDiv.setAttribute('class','post');//post div
+            
+
+            var postTtlDiv = document.createElement('div');//postTitle
+            postTtlDiv.setAttribute('class','post-title');
+
+
+            var headingtag = document.createElement('h3');
+            var textnode = document.createTextNode(postTtl); 
+            headingtag.appendChild(textnode);
+            
+           
+            var subTittle = document.createElement('p');
+            subTittle.setAttribute('class','sub-title');
+            var textnodePara = document.createTextNode(postsbTtl); 
+            subTittle.appendChild(textnodePara);
+
+           
+
+
+            var postImgDiv = document.createElement('div');
+            postImgDiv.setAttribute('class','post-image');
+
+           
+            var postImg = document.createElement('img');
+            postImg.setAttribute('src','img/'+Postimg+'.jpg');
+            postImgDiv.appendChild(postImg);
+            
+            
+
+            var postDescDiv = document.createElement('div');
+            postDescDiv.setAttribute('class','post-description');
+            var Description = document.createElement('p');
+            var textnodeDesc = document.createTextNode(PostDesc);
+            Description.appendChild(textnodeDesc);
+            postDescDiv.appendChild(Description);
+            
+            postDiv.appendChild(postTtlDiv);
+            postTtlDiv.appendChild(headingtag);
+            postTtlDiv.appendChild(subTittle);
+            postDiv.appendChild(postImgDiv);
+            
+           
+            
+            postArea.appendChild(postDiv);
+            postDiv.appendChild(postDescDiv);
+           
+
+            
+           alert("Post Added !");
+        }
+    </script>
+</body>
+</html>
